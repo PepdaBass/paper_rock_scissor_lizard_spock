@@ -2,8 +2,9 @@ from player import Player
 
 
 class Human(Player):
-    def __init__(self):
+    def __init__(self, name):
         super().__init__()
+        self.name = name
     
     def choose_name(self, name):
         self.name = input('Please enter your name: ')
