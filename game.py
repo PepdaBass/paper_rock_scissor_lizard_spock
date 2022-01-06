@@ -1,12 +1,13 @@
 from human import Human
 from artificial_intelligence import Artificial_Intelligence
+from player import Player
 
 class Game:
     def __init__(self):
-        pass
+        human = Human(Player)
 
     def run_game(self):
-        pass
+        
 
     def display_greeting(self):
         pass
