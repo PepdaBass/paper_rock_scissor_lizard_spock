@@ -5,6 +5,7 @@ class Human(Player):
     def __init__(self, name):
         super().__init__()
         self.name = name
+        self.choose_name()
     
     def choose_name(self, name):
         self.name = input('Please enter your name: ')

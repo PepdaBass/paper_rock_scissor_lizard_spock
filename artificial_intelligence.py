@@ -11,7 +11,7 @@ class Artificial_Intelligence(Player):
         self.name = 'Skynet'
 
     def choose_gesture(self):
-        computer_choice = self.gesture_list[random.randomint(0, 4)]
+        computer_choice = self.gesture_list[random.randint(0, 4)]
         return int(computer_choice)
 
         

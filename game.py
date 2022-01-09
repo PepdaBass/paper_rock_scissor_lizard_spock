@@ -1,12 +1,11 @@
 from human import Human
 from artificial_intelligence import Artificial_Intelligence
 from player import Player
-import time 
+
 
 class Game:
     def __init__(self):
         self.player_one = Human('John')
-        self.player_two = Human('Sara')
         self.player_three = Artificial_Intelligence()
         # self.player_vessel = Player() # Not sure what's going on with gesture_list from Player. Can't
         #                               # get it to be recognized.
@@ -14,7 +13,7 @@ class Game:
     def run_game(self):
         self.display_greeting()
         self.display_rules()
-        self.
+        self.initiate_one_player_game
 
     def display_greeting(self):
         print('Welcome to Dueling Gestures')
@@ -46,9 +45,14 @@ class Game:
         self.player_wins = 0
         self.artificial_intelligence_wins = 0
         self.games_played = 0
-        while self.artificial_intelligence_wins < 2 or self.player_wins < 2):
-            self.game_rules_method()
+        while self.artificial_intelligence_wins < 2 or self.player_wins < 2: #Can't get the game to step into this while loop???
+            self.game_rules_method() 
+            self.player_one.choose_gesture()
+            print(self.player_one.choose_gesture())
+            self.player_three.choose_gesture()
+            print(self.player_three.choose_gesture())
             print(self.games_played)
+          
 
             
 
