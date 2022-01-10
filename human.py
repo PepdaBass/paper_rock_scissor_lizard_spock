@@ -19,5 +19,4 @@ class Human(Player):
               'Enter 4 for Lizard\n',
               'Enter 5 for Spock\n')
         user_choice = input(gesture_option)
-        print(user_choice)
         return int(user_choice) - 1 
