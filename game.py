@@ -8,13 +8,13 @@ class Game:
         self.player_one = Human()
         self.player_two = Human()
         self.player_three = Artificial_Intelligence()
-        self.opponent = 
+        
       
 
     def run_game(self):
         self.display_greeting()
         self.display_rules()
-        self.initiate_one_player_game()
+        self.choose_multiplayer()
         self.display_winner()
 
     def display_greeting(self):
@@ -43,6 +43,15 @@ class Game:
         Spock vaporizes Rock
         ''')
 
+    
+    def choose_multiplayer(self):
+        self.player_opponent = int(input('Would you like to play sing player or multiplayer:Press 1 for single player game. Press 2 for multiplayer game.'))
+        if self.player_opponent == 1:
+            self.initiate_one_player_game()
+        elif self.player_opponent == 2:
+            self.initiate_two_player_game()
+    
+    
     def initiate_one_player_game(self):
         self.player_one.choose_name()
         self.games_played = 0
@@ -52,7 +61,7 @@ class Game:
             print(f'{self.player_one.name} chose {self.player_one.gesture_list[self.player_one_choice]}')
             #print(self.player_one.choose_gesture())
             self.opponent_choice = self.player_three.choose_gesture()
-            print(f'{self.player_three.name} chose {self.player_three.gesture_list[self.opponent_choice]}')
+            print(f'{self.opponent.name} chose {self.opponent.gesture_list[self.opponent_choice]}')
             self.game_rules_method()
             #print(self.player_three.choose_gesture())
             self.games_played += 1
@@ -68,12 +77,12 @@ class Game:
         self.player_two.choose_name()
         self.games_played = 0
         self.opponent = self.player_two
-        while self.player_three.score < 2 and self.player_one.score < 2: #Can't get the game to step into this while loop???
+        while self.opponent.score < 2 and self.player_one.score < 2: #Can't get the game to step into this while loop???
             self.player_one_choice = self.player_one.choose_gesture()
             print(f'{self.player_one.name} chose {self.player_one.gesture_list[self.player_one_choice]}')
             #print(self.player_one.choose_gesture())
-            self.player_three_choice = self.player_three.choose_gesture()
-            print(f'{self.player_three.name} chose {self.player_three.gesture_list[self.player_three_choice]}')
+            self.opponent_choice = self.opponent.choose_gesture()
+            print(f'{self.opponent.name} chose {self.opponent.gesture_list[self.opponent_choice]}')
             self.game_rules_method()
             #print(self.player_three.choose_gesture())
             self.games_played += 1
@@ -86,9 +95,7 @@ class Game:
     # 3 is Lizard
     # 4 is Spock
     def game_rules_method(self):
-        # one_round = False
-        # while one_round is False:
-        if self.player_one_choice == self.player_three_choice:
+        if self.player_one_choice == self.opponent_choice:
             print('It is a tie!')
         elif self.player_one_choice == 0 and (self.opponent_choice == 2 or self.opponent_choice == 3):
             print(f'{self.player_one.name} wins with {self.player_one.gesture_list[0]} !')# <-- gesture_list not working. need workaround
@@ -107,7 +114,7 @@ class Game:
             self.player_one.score = self.player_one.score + 1 
         else:
             print('Player two wins!')
-            self.player_three.score = self.player_three.score + 1
+            self.opponent.score = self.opponent.score + 1
     def round(self):
         pass
 
@@ -118,4 +125,4 @@ class Game:
         if self. player_one.score == 2:
             print(f'{self.player_one.name} is the winner. You have saved mankind.')
         else:
-            print(f'{self.player_three.name} is the winner. Skynet has taken over.')
+            print(f'{self.opponent.name} is the winner. Skynet has taken over.')
