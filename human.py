@@ -19,4 +19,7 @@ class Human(Player):
                             'Enter 4 for Lizard\n'
                             'Enter 5 for Spock\n')
         user_choice = input(gesture_option)
+        while user_choice != range(5):
+            print('That is not one of the options. Try again')
+            user_choice = input(gesture_option)
         return int(user_choice) - 1 
