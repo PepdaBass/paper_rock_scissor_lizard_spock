@@ -48,15 +48,16 @@ class Game:
     # Gives the user the option to select a one or two-player game. If one, the user faces the A.I., Skynet.
     # If two, two human opponents enter their names.
     def choose_opponent(self):
-        self.player_opponent = int(input('Would you like to play sing player or multiplayer: Press 1 for single player game. Press 2 for multiplayer game.'))
+        self.player_opponent = input('Would you like to play sing player or multiplayer: Press 1 for single player game. Press 2 for multiplayer game.')
         choose_game = False
         while choose_game == False:
-            if self.player_opponent != 1 and self.player_opponent != 2:
-               self.player_opponent = int(input('Not a valid choice. Please select again. Pease select 1 or 2'))
-            elif self.player_opponent == 1:
+            # if self.player_opponent != '1' and self.player_opponent != '2':
+            if self.player_opponent not in ['1', '2']:
+               self.player_opponent = input('Not a valid choice. Please select again. Pease select 1 or 2')
+            elif self.player_opponent == '1':
                 self.opponent = Artificial_Intelligence()
                 choose_game = True
-            elif self.player_opponent == 2:
+            elif self.player_opponent == '2':
                 self.opponent = Human()
                 choose_game = True
 

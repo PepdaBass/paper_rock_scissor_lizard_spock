@@ -18,7 +18,7 @@ class Human(Player):
         user_choice = input(gesture_option)
         valid_choice = False
         while valid_choice == False:
-            if user_choice != '1' and user_choice != '2' and user_choice != '3' and user_choice != '4' and user_choice != '5':
+            if user_choice not in ['1', '2', '3', '4', '5']:
                 print('That is not one of the options. Try again')
                 user_choice = input(gesture_option)
             else:
