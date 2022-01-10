@@ -12,8 +12,8 @@ class Game:
       
 
     def run_game(self):
-        self.display_greeting()
-        self.display_rules()
+        # self.display_greeting()
+        # self.display_rules()
         self.choose_opponent()
         self.display_winner()
 
@@ -133,7 +133,7 @@ class Game:
             print(f'{self.player_one.name} wins with {self.player_one.gesture_list[4]} !')
             self.player_one.score = self.player_one.score + 1 
         else:
-            print(f'Player two wins with {self.opponent_choice}!')
+            print(f'{self.opponent.name} wins with {self.opponent.gesture_list[self.opponent_choice]}!')
             self.opponent.score = self.opponent.score + 1
     def round(self):
         pass
@@ -142,7 +142,13 @@ class Game:
         pass
 
     def display_winner(self):
-        if self. player_one.score == 2:
-            print(f'{self.player_one.name} is the winner. You have saved mankind.')
-        else:
-            print(f'{self.opponent.name} is the winner. Skynet has taken over.')
+        if self.player_opponent == 1:
+            if self. player_one.score == 2:
+                print(f'{self.player_one.name} is the winner. You have saved mankind.')
+            else:
+                print(f'{self.opponent.name} is the winner. Skynet has taken over.')
+        elif self.player_opponent == 2:
+            if self.player_one.score == 2:
+                print(f'{self.player_one.name} is the winner.')
+            else:
+                print(f'{self.opponent.name} is the winner.')
