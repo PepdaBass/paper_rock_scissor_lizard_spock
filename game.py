@@ -9,8 +9,6 @@ class Game:
         self.opponent = None
         # self.player_three = Artificial_Intelligence()
         
-      
-
     def run_game(self):
         self.display_greeting()
         self.display_rules()
@@ -31,10 +29,6 @@ class Game:
         time.sleep(1)
         print('The rules work like this.')
         time.sleep(1)
-        
-
-
-        # Dueling Gestures
 
     def display_rules(self):
         print('''
@@ -50,8 +44,9 @@ class Game:
         Spock vaporizes Rock
         ''')
         time.sleep(3)
-
     
+    # Gives the user the option to select a one or two-player game. If one, the user faces the A.I., Skynet.
+    # If two, two human opponents enter their names.
     def choose_opponent(self):
         self.player_opponent = int(input('Would you like to play sing player or multiplayer: Press 1 for single player game. Press 2 for multiplayer game.'))
         choose_game = False
@@ -64,10 +59,8 @@ class Game:
             elif self.player_opponent == 2:
                 self.opponent = Human()
                 choose_game = True
-            
-                  
-    
-    
+
+    # This keeps track of the amount of games won and gestures chosen.         
     def initiate_game(self):
         self.player_one.choose_name()
         self.opponent.choose_name()
@@ -88,8 +81,8 @@ class Game:
             #print(self.player_three.choose_gesture())
             self.games_played += 1
             print(f'You have played {self.games_played} games.')
-
-    
+            print()
+  
     # 0 is Rock
     # 1 is Paper
     # 2 is Scissors
@@ -127,10 +120,14 @@ class Game:
         if self.player_opponent == 1:
             if self. player_one.score == 2:
                 print(f'{self.player_one.name} is the winner. You have saved mankind.')
+                print()
             else:
                 print(f'{self.opponent.name} is the winner. Skynet has taken over.')
+                print()
         elif self.player_opponent == 2:
             if self.player_one.score == 2:
                 print(f'{self.player_one.name} is the winner.')
+                print()
             else:
                 print(f'{self.opponent.name} is the winner.')
+                print()
