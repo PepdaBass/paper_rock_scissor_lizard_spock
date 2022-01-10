@@ -52,10 +52,12 @@ class Game:
         # self.artificial_intelligence_wins = 0 <-- self.player_three.score same thing
         self.player_one.choose_name()
         self.games_played = 0
-        while self.player_three.score <= 1 or self.player_one.score <= 1: #Can't get the game to step into this while loop???
+        while self.player_three.score < 2 and self.player_one.score < 2: #Can't get the game to step into this while loop???
             self.player_one_choice = self.player_one.choose_gesture()
+            print(self.player_one.gesture_list[self.player_one_choice])
             #print(self.player_one.choose_gesture())
             self.player_three_choice = self.player_three.choose_gesture()
+            print(self.player_three.gesture_list[self.player_three_choice])
             self.game_rules_method()
             #print(self.player_three.choose_gesture())
             self.games_played += 1
